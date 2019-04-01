@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <link rel="stylesheet" href="countdown.css">
+</head>
+    <body>
+<div class="header">
+        <h1>my head with hair</h1>
+</div>
+        
+<div class="body">
+
+<input type="button" value="Start CountDown" onclick="countdownInIt()">
+<input type="button" value="stop CountDown" onclick="timeoutClear()">
+<input type="button" value="Reset" onclick="timeStart()">
+
+<div id="show" style="height: 30px;padding-top: 10px;">10000</div>
+    <script>
+        var countdown;
+        var countDownNumber=1000;
+
+        function countdownInIt(){
+        	countDownNumber=10000;
+        	countdownTrigger();
+        }
+
+        function countdownTrigger(){
+        	if(countDownNumber>0){
+        		countDownNumber--;
+                  document.getElementById("show").innerHTML=countDownNumber;
+        		if(countDownNumber>0){
+        			countdown=setTimeout("countdownTrigger()",1);
+        		}
+        	}
+        }
+
+        function timeoutClear(){
+        	clearTimeout(countdown);
+        	//document.getElementById("show").innerHTML="end time out function";
+        }
+
+        function timeStart(){
+        	countdown=10000;
+        	//document.getElementById("show").innerHTML=countDownNumber;
+        }
+    </script>
+    
+</div>
+        
+<div class="footer">
+       <h1>my beautiful foot</h1> 
+</div>
+    </body>
+</html>
